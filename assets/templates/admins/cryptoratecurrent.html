@@ -1,0 +1,34 @@
+{%extends 'admins/adminbase.html'%}
+{%load static%}
+{%block contents%}
+
+<section class="hero-area" xmlns="http://www.w3.org/1999/html">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+
+			</div>
+			<div class="col-md-12">
+				<div class="block">
+					<h2>Current Rate is</h2>
+					<p>Current Trading</p>
+                  <table>  <tr>
+                        <th>Name</th>
+                        <th>Price (USD)</th>
+                        <th>Last Updated</th>
+                    </tr>
+                    {% for crypto in cryptocurrencies %}
+                    <tr>
+                        <td class="crypto-name">{{ crypto.name }}</td>
+                        <td>${{ crypto.price }}</td>
+                        <td>{{ crypto.last_updated }}</td>
+                    </tr>
+                    {% endfor %}
+</table>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{%endblock%}
